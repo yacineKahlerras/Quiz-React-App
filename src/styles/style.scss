@@ -1,0 +1,63 @@
+@use "utils" as *;
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .start-container {
+    @extend %component-layout;
+
+    p {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  main {
+    width: min(100%, 55rem);
+    padding: 4rem 7.5rem;
+    margin: 10rem 0;
+    @extend %component-layout;
+    background: url("../images/blob1.svg") right top no-repeat,
+      url("../images/blob2.svg") left bottom no-repeat, $main-bg-clr;
+
+    .quiz-container {
+      display: flex;
+      flex-direction: column;
+
+      .quiz {
+        &:first-of-type {
+          padding-bottom: 2rem;
+        }
+
+        &:not(:first-of-type) {
+          @extend %border-top;
+        }
+
+        .answers-container {
+          display: flex;
+          gap: 0.8rem;
+          row-gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    .submit-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      @extend %border-top;
+
+      p {
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
